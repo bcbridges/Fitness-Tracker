@@ -6,4 +6,42 @@ const Schema = mongoose.Schema;
 
 // Need to create a new schema that can track the following:
 // date of workout, exercises associated with each workout (maybe create an array for each workout?), exerciseName,
-// duration (for cardio), distance (for cardio),weight per rep, reps, sets per exercise
+// duration (for cardio), distance (for cardio),weight per rep, repetitions, sets per exercise
+
+const WorkoutSchema = new Schema({
+    date: {
+        type: Date,
+        default: Date.now();
+    },
+    exercises: [
+        {
+            name: {
+                type: String,
+            },
+            class: {
+                type: String,
+            },
+            duration: {
+                type: Number,
+                // Check front end to see if I need any time validation for this.
+            },
+            distance: {
+                type: Number,
+            },
+            weight: {
+                type: Number,
+            },
+            repetitions: {
+                type: Number,
+            },
+            sets: {
+                type: Number,
+            }
+        }
+    ]
+});
+
+// Associate schema with variable to export and link to index.js
+const Workout = mongoose.model("Workout", WorkoutSchema);
+
+module.exports = Workout;
