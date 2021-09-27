@@ -14,7 +14,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.3.16",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "pat": "0.0.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

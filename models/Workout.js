@@ -9,36 +9,37 @@ const Schema = mongoose.Schema;
 // duration (for cardio), distance (for cardio),weight per rep, repetitions, sets per exercise
 
 const WorkoutSchema = new Schema({
-    date: {
-        type: Date,
-        default: Date.now();
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
+  exercises: [
+    {
+      name: {
+        type: String,
+        // Validation to require that this be filled in
+      },
+      class: {
+        type: String,
+      },
+      duration: {
+        type: Number,
+        // Check front end to see if I need any time validation for this.
+      },
+      distance: {
+        type: Number,
+      },
+      weight: {
+        type: Number,
+      },
+      repetitions: {
+        type: Number,
+      },
+      sets: {
+        type: Number,
+      },
     },
-    exercises: [
-        {
-            name: {
-                type: String,
-            },
-            class: {
-                type: String,
-            },
-            duration: {
-                type: Number,
-                // Check front end to see if I need any time validation for this.
-            },
-            distance: {
-                type: Number,
-            },
-            weight: {
-                type: Number,
-            },
-            repetitions: {
-                type: Number,
-            },
-            sets: {
-                type: Number,
-            }
-        }
-    ]
+  ],
 });
 
 // Associate schema with variable to export and link to index.js
