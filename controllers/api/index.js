@@ -10,7 +10,7 @@ router.get("/workouts", async (req, res) => {
   db.Workout.aggregate([
     {
       $set: {
-        totalDuration: { $sum: "$exercices.duration" },
+        totalDuration: { $sum: "$exercises.duration" },
       },
     },
   ])
