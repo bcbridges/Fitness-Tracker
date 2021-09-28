@@ -5,8 +5,6 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
 
-// Require in the models
-
 const app = express();
 
 app.use(logger("dev"));
@@ -15,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-app.use(require("./controllers"));
+app.use(require("./controllers/index"));
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/fitness_tracker_db",

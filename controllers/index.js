@@ -1,7 +1,6 @@
 const router = require("express").Router();
-// Erroring out, fix ASAP
-const apiRoutes = require("./api");
-router.use("/api", apiRoutes);
+
+router.use("/api", require("./api/index"));
 
 // If user navigates to home
 router.get("/", (req, res) => {
