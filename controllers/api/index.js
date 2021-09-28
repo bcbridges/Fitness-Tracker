@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// Bring in mongoose to interact with schmea
+// Bring in mongoose to interact with schmea -- Not sure if needed
 // const mongoose = require("mongoose");
 const db = require("../../models");
 
@@ -13,7 +13,7 @@ router.get("/workouts", (req, res) => {
         totalDuration: { $sum: "$exercices.duration" },
       },
     },
-  ]).then((res) => res.json(res));
+  ]).then((result) => res.json(result));
 });
 
 // addExercise
