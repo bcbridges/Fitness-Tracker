@@ -1,12 +1,12 @@
 const router = require("express").Router();
 // Bring in mongoose to interact with schmea -- Not sure if needed
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const db = require("../../models");
 
 // getLastWorkout
 // GET all workouts - The api.js will get the last specific one
 // Can't test until the PUT and POST is Gucci :(
-router.get("/workouts", (req, res) => {
+router.get("/workouts", async (req, res) => {
   db.Workout.aggregate([
     {
       $set: {
@@ -47,7 +47,7 @@ router.post("/workouts", async (req, res) => {
 
 // getWorkoutsInRange
 // GET all workouts within a range
-router.get("/workouts/range", (req, res) => {
+router.get("/workouts/range", async (req, res) => {
   db.Workout.aggregate([
     {
       $set: {
